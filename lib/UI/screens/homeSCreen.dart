@@ -13,9 +13,13 @@ class HomeScreen extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [ImagePickerWidget(), Buttons()]),
+            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+              ImagePickerWidget(),
+              Button(
+                buttonText: 'geblur',
+                onPressed: () {},
+              )
+            ]),
             VerticalDivider(
               thickness: 2,
               color: Colors.black,
