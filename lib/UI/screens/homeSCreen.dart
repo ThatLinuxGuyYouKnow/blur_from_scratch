@@ -1,12 +1,28 @@
+import 'package:blur_from_scratch/UI/widgets/button.dart';
+import 'package:blur_from_scratch/UI/widgets/imagePickWidget.dart';
 import 'package:flutter/material.dart';
 
-class HomeSCreen extends StatelessWidget {
-  HomeSCreen({super.key});
+class HomeScreen extends StatelessWidget {
+  HomeScreen({super.key});
 
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [],
+      backgroundColor: Colors.black,
+      body: Padding(
+        padding: EdgeInsets.symmetric(vertical: 100),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [ImagePickerWidget(), Buttons()]),
+            VerticalDivider(
+              thickness: 2,
+              color: Colors.black,
+            ),
+            ImagePickerWidget(),
+          ],
+        ),
       ),
     );
   }
