@@ -1,5 +1,6 @@
 import 'package:blur_from_scratch/UI/widgets/button.dart';
 import 'package:blur_from_scratch/UI/widgets/imagePickWidget.dart';
+import 'package:blur_from_scratch/logic/pickImage.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -22,7 +23,7 @@ class HomeScreen extends StatelessWidget {
             ]),
             VerticalDivider(
               thickness: 2,
-              color: Colors.black,
+              color: Colors.white,
             ),
             ImagePickerWidget(),
           ],
