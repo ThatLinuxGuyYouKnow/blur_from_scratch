@@ -1,18 +1,39 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
-import 'package:file_picker/file_picker.dart';
+Future<Map<String, int>> getImageDimensions(XFile file) async {
+  // Create an Image object from the file
+  final Image image = Image.file(File(file.path));
 
-pickImage() async {
-  FilePickerResult? result = await FilePicker.platform.pickFiles(
-    type: FileType.custom,
-    allowedExtensions: [
-      'jpg',
-      'pdf',
-    ],
+  // Completer to get image dimensions after load
+  Completer<Map<String, int>> completer = Completer();
+
+  image.image.resolve(ImageConfiguration()).addListener(
+    ImageStreamListener(
+      (ImageInfo info, bool _) {
+        completer.complete({
+          'width': info.image.width,
+          'height': info.image.height,
+        });
+      },
+    ),
   );
-  if (result != null) {
-    File file = File(result.files.single.path!);
-    return file;
+
+  return completer.future;
+}
+
+Future<void> pickImage() async {
+  final ImagePicker _picker = ImagePicker();
+  final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+
+  if (image != null) {
+    // Get dimensions
+    final dimensions = await getImageDimensions(image);
+
+    print('Width: ${dimensions['width']}');
+    print('Height: ${dimensions['height']}');
   }
-  return null;
 }
