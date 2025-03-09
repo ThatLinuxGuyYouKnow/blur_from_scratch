@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:blur_from_scratch/logic/getPixelData.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
@@ -30,10 +31,14 @@ Future<void> pickImage() async {
   final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
 
   if (image != null) {
+    List<int> pixels = await getPixelData(image);
     // Get dimensions
     final dimensions = await getImageDimensions(image);
-
-    print('Width: ${dimensions['width']}');
-    print('Height: ${dimensions['height']}');
+    int imageWidth = dimensions['width'] ?? 0;
+    var imageHeight = dimensions['height'];
+    double pixelSplit =
+        pixels.length / (imageWidth * 4); // multiplied by 4 since R G B A
+    print('pixel split' + pixelSplit.toString());
+    for (int y = 0; y < pixelSplit; y++) {}
   }
 }
