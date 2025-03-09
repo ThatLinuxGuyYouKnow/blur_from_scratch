@@ -1,16 +1,25 @@
-# blur_from_scratch
+# Blur from scratch🚧
 
-A new Flutter project.
+[![Dart](https://img.shields.io/badge/language-Dart-blue.svg)](https://www.dartlang.org/)
+[![Flutter](https://img.shields.io/badge/Flutter-blue.svg)](https://flutter.dev/)
+[![Image Picker](https://img.shields.io/pub/v/image_picker.svg)](https://pub.dev/packages/image_picker)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Description
 
-A few resources to get you started if this is your first Flutter project:
+This Flutter project is a starting point for blurring images.  It uses the `image_picker` package to allow users to select images from their gallery.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Core Technologies
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* Dart
+* Flutter
+* image_picker
+
+## Mobile App Details
+
+### Installed Packages
+
+* `flutter`
+* `cupertino_icons`
+* `image_picker`
+
